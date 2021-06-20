@@ -45,6 +45,9 @@ static String resultado;
 		int contador=0;
 		int contador1=0;
 		int contador2=0;
+		String resultado="";
+		String totalminuscula="";
+		String totalmayuscula="";
 		
 		while(contador!=longitudnumeros) {
 			int numeros = (int) (Math.random()*9+1);
