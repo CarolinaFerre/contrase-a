@@ -1,0 +1,105 @@
+package contraseña;
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class contraseña {
+static Scanner sc=new Scanner(System.in);
+
+public static int longitud;
+public static String contraseña;
+
+
+//variables estáticas
+static int numeros;
+static String minuscula;
+static String totalminuscula;
+static String mayusculas;
+static String contraseñaleatoria;
+static String totalmayuscula;
+static int longitudnumeros;
+static int longitudmayuscula;
+static int longitudminuscula;
+static String resultado;
+
+//constructores
+
+	public contraseña() {
+		longitud=5;
+		contraseña="Ddg34564";
+	}
+	public contraseña(int longitudnumeros,int longitudminuscula,int longitudmayuscula) {
+		this.longitudminuscula=longitudminuscula;
+		this.longitudmayuscula=longitudmayuscula;
+		setContraseñaAleatoria(longitudnumeros,longitudminuscula,longitudmayuscula);
+	}
+	public String getContraseña() {
+		return contraseña;
+	}
+	public int longitud() {
+		return longitud;
+	}
+	
+	public void setContraseñaAleatoria(int longitudnumeros,int longitudminuscula,int longitudmayuscula) {
+		//números aleatorios
+		int contador=0;
+		int contador1=0;
+		int contador2=0;
+		
+		while(contador!=longitudnumeros) {
+			int numeros = (int) (Math.random()*9+1);
+			String numCadena= Integer.toString(numeros);
+			resultado=resultado+numCadena;
+			contador++;
+			}
+		
+		//letras minúsculas aleatorias
+		while(contador1!=longitudminuscula) {
+			
+			String abc = "abcdefghijklsmnopqrstuwxyz";
+			Random minusculas1=new Random();
+			char letrasminusculas1 = abc.charAt(minusculas1.nextInt(abc.length()));
+			minuscula= String.valueOf(letrasminusculas1);
+			totalminuscula=totalminuscula+minuscula;
+			contador1++;
+		}
+			
+		//letras mayúsculas aleatorias
+		while(contador2!=longitudmayuscula) {
+			String ABC = "ABCDEFGHIJKLMNÑOPQRSTUWXYZ";
+			Random mayusculas1=new Random();
+			char letrasmayusculas1 = ABC.charAt(mayusculas1.nextInt(ABC.length()));
+			mayusculas= String.valueOf(letrasmayusculas1);
+			totalmayuscula=totalmayuscula+mayusculas;
+			contador2++;
+		}
+		
+		contraseñaleatoria=resultado+totalminuscula+totalmayuscula;
+		System.out.println("La contraseña de la app es= "+contraseñaleatoria);
+	}
+}
+	public class menucontraseña {
+
+	public static void main(String[] args) {
+		//declaración variables
+
+		System.out.println("Introduce una lontitud de números para la contraseña de la app");
+		int longitudnumeros=sc.nextInt();
+		System.out.println("Introduce una lontitud de minúsculas para la contraseña de la app");
+		int longitudminusculas=sc.nextInt();
+		System.out.println("Introduce una lontitud de mayúsculas para la contraseña de la app");
+		int longitudmayusculas=sc.nextInt();
+		
+    //declaración de objetos
+		
+		contraseña web=new contraseña();
+		contraseña app=new contraseña(longitudnumeros,longitudminusculas,longitudmayusculas);
+    
+		//llamada a los métodos
+		System.out.println("La contraseña de la web es= "+web.contraseña);
+		
+
+	}
+
+}
+
