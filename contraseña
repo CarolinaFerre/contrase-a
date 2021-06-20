@@ -36,7 +36,7 @@ static String resultado;
 	public String getContraseña() {
 		return contraseña;
 	}
-	public int longitud() {
+	public int getlongitud() {
 		return longitud;
 	}
 	
